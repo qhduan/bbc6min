@@ -18,9 +18,9 @@ function download_one () {
         page.open(url, function (status) {
             if (status == "success") {
                 var title = page.evaluate(function () {
-                    if ( !document.querySelectorAll(".widget-heading h3") )
+                    if ( !document.querySelector("[data-widget-index='3'] h3") )
                         return null;
-                    return document.querySelectorAll(".widget-heading h3")[1].textContent.trim();
+                    return document.querySelector("[data-widget-index='3'] h3").textContent.trim();
                 });
                 var date = page.evaluate(function () {
                     if ( !document.querySelector(".widget-bbcle-featuresubheader .details h3") )
