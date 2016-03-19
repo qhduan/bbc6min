@@ -4,7 +4,7 @@
 var fs = require("fs");
 var page = require("webpage").create();
 
-var links = JSON.parse(fs.read("old_links.json", { mode: "r", charset: "utf8" }));
+var links = JSON.parse(fs.read("new_links.json", { mode: "r", charset: "utf8" }));
 
 // console.log(links);
 
@@ -62,7 +62,7 @@ function download_one () {
                     ret.push(obj);
                 } else {
                     console.log("解析错误", url);
-                    console.log(title, description, date, audio, pdf);
+                    console.log("title: ", title, "description: ", description, "date: ", date, "audio: ", audio, "pdf: ", pdf);
                 }
             } else {
                 console.error("打开错误", url);

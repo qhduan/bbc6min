@@ -12,7 +12,7 @@ page.open(url, function (status) {
             var a = document.querySelectorAll(".text h2 a");
             var ret = [];
             for (var i = 0; i < a.length; i++) {
-                if (a[i].href.indexOf("/learningenglish/english/features/6-minute-english/") != -1) {
+                if (a[i].href.indexOf("/learningenglish/english/features/6-minute-english") != -1) {
                     ret.push(a[i].href);
                 }
             }
