@@ -2,7 +2,6 @@
 // console.log("下载");
 
 var fs = require("fs");
-var page = require("webpage").create();
 
 var links = JSON.parse(fs.read("new_links.json", { mode: "r", charset: "utf8" }));
 
@@ -10,15 +9,16 @@ var links = JSON.parse(fs.read("new_links.json", { mode: "r", charset: "utf8" })
 
 var ret = [];
 
-page.onError = function (msg, trace) {
-    // something wrong in page, I don't care
-};
-
 function download_one () {
     if (links.length) {
         var url = links[0];
         links.shift();
         console.log("开始", url);
+
+        var page = require("webpage").create();
+        page.onError = function (msg, trace) {
+            // something wrong in page, I don't care
+        };
         page.open(url, function (status) {
             if (status == "success") {
                 var title = page.evaluate(function () {
