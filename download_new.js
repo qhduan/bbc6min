@@ -10,6 +10,10 @@ var links = JSON.parse(fs.read("new_links.json", { mode: "r", charset: "utf8" })
 
 var ret = [];
 
+page.onError = function (msg, trace) {
+    // something wrong in page, I don't care
+};
+
 function download_one () {
     if (links.length) {
         var url = links[0];
