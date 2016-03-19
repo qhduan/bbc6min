@@ -25,7 +25,7 @@ function download_one () {
                 var date = page.evaluate(function () {
                     if ( !document.querySelector(".last-updated") )
                         return null;
-                    var d = Date.parse(document.querySelector(".last-updated").textContent.substr(16))
+                    var d = Date.parse(document.querySelector(".last-updated").textContent.substr(16).replace(" BST", ""))
                     var now = new Date();
                     now.setTime(d);
                     return now.toISOString();
