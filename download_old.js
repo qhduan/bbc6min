@@ -25,10 +25,7 @@ function download_one () {
                 var date = page.evaluate(function () {
                     if ( !document.querySelector(".last-updated") )
                         return null;
-                    var d = Date.parse(document.querySelector(".last-updated").textContent.substr(16).replace(" BST", ""))
-                    var now = new Date();
-                    now.setTime(d);
-                    return now.toISOString();
+                    return new Date(document.querySelector(".last-updated").textContent.match(/\d+ [a-zA-Z]+ \d+/)[0]).toISOString().substr(0, 10);
                 });
                 var audio = page.evaluate(function () {
                     if ( !document.querySelector(".audio-link") )
