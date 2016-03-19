@@ -62,6 +62,7 @@ function download_one () {
                     ret.push(obj);
                 } else {
                     console.log("解析错误", url);
+                    console.log(title, description, date, audio, pdf);
                 }
             } else {
                 console.error("打开错误", url);
