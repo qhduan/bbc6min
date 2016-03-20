@@ -1,0 +1,115 @@
+{
+  "name": "webpack",
+  "description": "webpack profject base",
+  "version": "0.0.1",
+  "scripts": {
+    "lint": "node node_modules/eslint/bin/eslint client/**",
+    "build": "node node_modules/webpack/bin/webpack --config ./config/webpack.config.prod.js",
+    "test": "NODE_ENV=development node app",
+    "start": "NODE_ENV=production node app"
+  },
+  "author": {
+    "name": "QHDuan",
+    "email": "mail@qhduan.com"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "dependencies": {
+    "babel-core": "^6.3.17",
+    "babel-register": "^6.3.13",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.5.0",
+    "express": "^4.13.3",
+    "compression": "^1.6.1"
+  },
+  "devDependencies": {
+    "css-loader": "^0.23.0",
+    "node-sass": "^3.4.2",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.14",
+    "webpack-dev-middleware": "^1.4.0",
+    "webpack-hot-middleware": "^2.6.0",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "console-polyfill": "^0.2.2",
+    "babel-polyfill": "^6.7.2",
+    "lodash": "^4.6.1",
+    "url-loader": "^0.5.7",
+    "material-ui": "^0.15.0-alpha.2",
+    "react-tap-event-plugin": "^0.2.2",
+    "isomorphic-fetch": "^2.2.1",
+    "classnames": "^2.2.3",
+    "eslint": "^2.4.0",
+    "eslint-plugin-react": "^4.2.3",
+    "eslint-plugin-html": "^1.4.0",
+    "css": "^2.2.1",
+    "sass": "^0.5.0"
+  },
+  "readme": "README.md",
+  "license": "GPL-3.0",
+  "engines": {
+    "node": ">=4.2.0"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://qhduan.com"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
+  "eslintConfig": {
+    "globals": {
+      "_": true
+    },
+    "rules": {
+      "no-console": 0,
+      "indent": [
+        0,
+        "tab"
+      ],
+      "quotes": [
+        2,
+        "double"
+      ],
+      "linebreak-style": [
+        2,
+        "unix"
+      ],
+      "semi": [
+        2,
+        "always"
+      ]
+    },
+    "env": {
+      "es6": true,
+      "browser": true,
+      "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true,
+        "modules": true,
+        "experimentalObjectRestSpread": true
+      },
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    },
+    "ecmaFeatures": {
+      "modules": true,
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    },
+    "plugins": [
+      "react",
+      "html"
+    ]
+  }
+}

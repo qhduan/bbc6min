@@ -14,9 +14,11 @@ if len(sys.argv) == 2:
             if date.find(' ') != -1:
                 d = parser.parseDateText(date)
                 date = '%d-%02d-%02d' % (d[0], d[1], d[2])
+                i['date'] = date
             print("curl -o ../6min/%s.pdf %s" % (date, i['pdf']))
             print("curl -o ../6min/%s.mp3 %s" % (date, i['audio']))
             jf = open('../6min/%s.json' % date, "w+")
             jf.write(json.dumps(i, indent=2, ensure_ascii=False))
+            jf.close()
 else:
     print('用法 python downloader.py old_url.json')

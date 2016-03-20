@@ -1,6 +1,7 @@
 {
+  "date": "2014-05-01",
+  "pdf": "http://wsdownload.bbc.co.uk/learningenglish/pdf/2014/05/140501124038_140501_6_min_workers_day.pdf",
   "description": "The BBC newsroom is an open-plan office\n\nMillions of people work in open-plan offices these days. They use computers, make phone calls, and discuss tasks with their colleagues in a big room full of desks and no walls between these desks. But is it a good environment to work in?Rob and Finn work in an open-plan office. Do they like it? They talk about the pros and cons and teach some work-related vocabulary.\nThis week's question:\nWhat do we call a kind of noise that contains the full range of sounds that humans can hear? Is it…a) white noiseb) green noisec) pink noise\nListen to the programme to find out the answer.\nModern offices\nEnd of Section\nShow All | Hide All\nbig office which has few or no walls or rooms inside it\nowner of factories who is influential in business\nworking together for the same goal, exchanging information and ideas\ngroup of people who work for a company or organisation\nto become acceptable and popular\nshare for each individual\nmovement, especially movement that is smooth and continuous\nrate at which goods are made\n",
-  "title": "Modern offices",
   "words": [
     {
       "dt": "open-plan office",
@@ -35,7 +36,6 @@
       "dd": "rate at which goods are made"
     }
   ],
-  "date": "2014-05-01",
-  "audio": "http://http-ws.bbc.co.uk.edgesuite.net/mp3/learningenglish/2014/04/6_min_modern_offices_audio_website_140501_6min_modern_offices_audio_au_bb.mp3",
-  "pdf": "http://wsdownload.bbc.co.uk/learningenglish/pdf/2014/05/140501124038_140501_6_min_workers_day.pdf"
+  "title": "Modern offices",
+  "audio": "http://http-ws.bbc.co.uk.edgesuite.net/mp3/learningenglish/2014/04/6_min_modern_offices_audio_website_140501_6min_modern_offices_audio_au_bb.mp3"
 }

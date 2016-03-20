@@ -1,0 +1,17 @@
+
+.home {
+    .loading {
+        text-align: center;
+    }
+    .player {
+        text-align: center;
+        width: 100%;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        background-color: white;
+        border-top: 1px solid #ddd;
+        box-shadow: 1px 1px 1px 1px #ddd;
+        z-index: 10;
+    }
+}
