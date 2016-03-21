@@ -50,12 +50,28 @@ class Home extends React.Component {
             play:    null,
             error:   null
         };
+
+        window.addEventListener("scroll",function(){
+            window.scrollTo(0, 0);
+        }, false)
+
+        document.body.addEventListener("touchstart", event => {
+            if (event.target && event.target.tagName && (event.target.tagName=="HTML" || event.target.tagName=="BODY")) {
+                event.preventDefault();
+            }
+        });
     }
 
     componentDidMount () {
         document.title = "BBC 6 Minutes English";
         window.scrollTo(0, 1);
         this.getData();
+        this.computeSize();
+        window.addEventListener("resize", () => this.computeSize());
+    }
+
+    componentDidUpdate () {
+        this.computeSize();
     }
 
     getData (p) {
@@ -78,6 +94,18 @@ class Home extends React.Component {
             });
             window.localStorage.setItem("page", j.page);
         }).catch(err => this.setState({ loading: false, error: err }));
+    }
+
+    computeSize () {
+        const header = document.querySelector("header");
+        const main = document.querySelector("main");
+        const footer = document.querySelector("footer");
+        if (header && main && footer) {
+            const headerHeight = header.getBoundingClientRect().height;
+            const footerHeight = footer.getBoundingClientRect().height;
+            const mainHeight = window.innerHeight - 10 - headerHeight - footerHeight;
+            main.style.height = `${mainHeight}px`;
+        }
     }
 
     render () {
@@ -110,7 +138,7 @@ class Home extends React.Component {
                             }
                             return (
                                 <div>
-                                    <div className="list">
+                                    <main className="main">
                                         {
                                             _.isArray(list) ? (
                                                 <List
@@ -122,7 +150,7 @@ class Home extends React.Component {
                                                 />
                                             ) : null
                                         }
-                                    </div>
+                                    </main>
                                     {(() => {
                                         if (_.isString(play)) {
                                             return (
