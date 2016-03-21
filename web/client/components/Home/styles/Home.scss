@@ -1,17 +1,38 @@
 
+body {
+    overflow: hidden;
+}
+
 .home {
     .loading {
         text-align: center;
     }
+    .error {
+
+    }
+    header {
+        height: 15vh;
+    }
+    .list {
+        height: 65vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
     .player {
         text-align: center;
-        width: 100%;
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        background-color: white;
         border-top: 1px solid #ddd;
         box-shadow: 1px 1px 1px 1px #ddd;
-        z-index: 10;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+    .toolbar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+    footer {
     }
 }

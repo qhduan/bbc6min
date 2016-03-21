@@ -47,7 +47,8 @@ class Home extends React.Component {
             loading: true,
             maxPage: 1,
             list:    null,
-            play:    null
+            play:    null,
+            error:   null
         };
     }
 
@@ -76,55 +77,71 @@ class Home extends React.Component {
                 list:    j.list
             });
             window.localStorage.setItem("page", j.page);
-        });
+        }).catch(err => this.setState({ loading: false, error: err }));
     }
 
     render () {
-        const {loading, page, maxPage, list, play} = this.state;
+        const {loading, error, page, maxPage, list, play} = this.state;
 
         return (
             <div className="home">
                 <MuiThemeProvider muiTheme={muiTheme}>
                     <div className="container">
-                        <AppBar
-                            title="BBC 6 Minutes English"
-                            showMenuIconButton={false}
-                        />
-                        {
-                            loading ? (
-                                <div className="loading">
-                                    <CircularProgress size={2}/>
-                                </div>
-                            ) : (
+                        <header>
+                            <AppBar
+                                title="BBC 6 Minutes English"
+                                showMenuIconButton={false}
+                            />
+                        </header>
+                        {(() => {
+                            if (loading) {
+                                return (
+                                    <div className="loading">
+                                        <CircularProgress size={2}/>
+                                    </div>
+                                );
+                            }
+                            if (error) {
+                                return (
+                                    <div className="error">
+                                        { error }
+                                    </div>
+                                );
+                            }
+                            return (
                                 <div>
-                                    {
-                                        _.isArray(list) ? (
-                                            <List
-                                                list={list}
-                                                play={date => this.setState({ play: date })}
-                                            />
-                                        ) : null
-                                    }
-                                    {
-                                        _.isString(play) ? (
-                                            <Player
-                                                play={play}
-                                                close={() => this.setState({ play: null })}
-                                            />
-                                        ) : null
-                                    }
-                                    {
-                                        (page && maxPage) ? (
-                                            <Footer
-                                                page={page}
-                                                maxPage={maxPage}
-                                                getData={(...args) => this.getData(...args)}
-                                            />
-                                        ) : null
-                                    }
+                                    <div className="list">
+                                        {
+                                            _.isArray(list) ? (
+                                                <List
+                                                    list={list}
+                                                    play={date => this.setState({ play: null }) && this.setState({ play: date })}
+                                                />
+                                            ) : null
+                                        }
+                                    </div>
+                                    {(() => {
+                                        if (_.isString(play)) {
+                                            return (
+                                                <Player
+                                                    play={play}
+                                                    close={() => this.setState({ play: null })}
+                                                />
+                                            );
+                                        }
+                                        if (page && maxPage) {
+                                            return (
+                                                <Footer
+                                                    page={page}
+                                                    maxPage={maxPage}
+                                                    getData={(...args) => this.getData(...args)}
+                                                />
+                                            );
+                                        }
+                                    })()}
                                 </div>
-                            )
-                        }
+                            );
+                        })()}
                     </div>
                 </MuiThemeProvider>
             </div>

@@ -38,7 +38,7 @@ export default function sixmin (app, express) {
         if ( !Number.isFinite(page) || page <= 0) {
             page = 1;
         }
-        const size = 3;
+        const size = 2;
         const maxPage = Math.floor(list.length / size);
         const begin = (page - 1) * size;
         const end = page * size;

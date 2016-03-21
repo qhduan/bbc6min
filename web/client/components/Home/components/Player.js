@@ -16,7 +16,7 @@ export default class Player extends React.Component {
     render () {
         const {play, close} = this.props;
         return (
-            <div className="player">
+            <footer className="player">
                 <div>
                     <label ref="time">
                         {"0s/0s"}
@@ -37,7 +37,7 @@ export default class Player extends React.Component {
                         <source src={`/6min/${play}.mp3`} type="audio/mpeg" />
                     </audio>
                 </div>
-            </div>
+            </footer>
         );
     }
 

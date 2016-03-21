@@ -5,4 +5,7 @@
 
 "use strict";;
 
+import injectTapEventPlugin from "react-tap-event-plugin";
+injectTapEventPlugin();
+
 import Home from "./components/Home";
