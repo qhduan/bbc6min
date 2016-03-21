@@ -33,8 +33,8 @@ export default class Player extends React.Component {
                         autoPlay
                         onTimeUpdate={() => this.showTime()}
                     >
-                        <source src={`/6min/${play}.ogg`} type="audio/ogg" />
-                        <source src={`/6min/${play}.mp3`} type="audio/mpeg" />
+                        <source src={`/audio/${play}.ogg`} type="audio/ogg" />
+                        <source src={`/audio/${play}.mp3`} type="audio/mpeg" />
                     </audio>
                 </div>
             </footer>

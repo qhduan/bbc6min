@@ -115,7 +115,10 @@ class Home extends React.Component {
                                             _.isArray(list) ? (
                                                 <List
                                                     list={list}
-                                                    play={date => this.setState({ play: null }) && this.setState({ play: date })}
+                                                    play={date => {
+                                                        this.setState({ play: null });
+                                                        setTimeout(() => this.setState({ play: date }), 100);
+                                                    }}
                                                 />
                                             ) : null
                                         }

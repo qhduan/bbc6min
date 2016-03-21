@@ -48,5 +48,5 @@ export default function sixmin (app, express) {
             list: list.slice(begin, end)
         });
     });
-    app.use("/6min", express.static(path.resolve(__dirname, "..", "..", "6min")));
+    app.use("/audio", express.static(path.resolve(__dirname, "..", "..", "audio")));
 }
